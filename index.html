@@ -1,0 +1,275 @@
+<!doctype html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>סוכן ראשון ב-Claude נקי — תשעה משפטים</title>
+<meta name="description" content="מדריך צעד-אחר-צעד לבניית הסוכן הראשון ב-Claude Code נקי, בתשעה משפטים.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧭</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <span class="brand">🧭 סוכן ראשון ב-Claude נקי</span>
+    <span class="progress-label" id="progressLabel">לפני שמתחילים</span>
+  </div>
+  <div class="progress" role="progressbar" aria-labelledby="progressLabel" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0">
+    <i id="progressBar"></i>
+  </div>
+</header>
+
+<main class="wrap" id="main">
+
+  <!-- ===== 0 ===== -->
+  <section class="step" data-label="לפני שמתחילים">
+    <p class="when">פעם אחת</p>
+    <h1>לפני שמתחילים</h1>
+    <p class="lead">תשעה משפטים. אומרים אותם לפי הסדר, ובסוף יש לך סוכן שעובד.<br>
+      אין מה להתקין, אין מה להגדיר — רק להדביק משפט ולקרוא מה חזר.</p>
+
+    <div class="callout callout-key">
+      <h2>💻 עובדים באפליקציה של Claude, בלשונית <b>Code</b></h2>
+      <p>לא בטרמינל. בטרמינל העברית מוצגת הפוך וקשה מאוד לקרוא — באפליקציה היא תקינה.</p>
+    </div>
+
+    <div class="callout">
+      <h2>🧩 מה זה "סוכן" כאן</h2>
+      <p>עוזר קטן עם שם, אימוג'י ואישיות, שקוראים לו בשם והוא מתעורר. בשפה של Claude זה נקרא <b>סקיל</b> —
+        ובמשפט 2 נגיד ל-Claude במפורש שזו הכוונה, כדי שלא יתבלבל.</p>
+    </div>
+
+    <p class="meta">תשעה משפטים · כ-20 דקות · נבדק מאפס ב-21.10.2026</p>
+  </section>
+
+  <!-- ===== 1 ===== -->
+  <section class="step" data-label="משפט 1 מתוך 9">
+    <p class="when">פעם אחת — בפעם הראשונה</p>
+    <h1><span class="num">1</span> 🗣️ כללי השיחה</h1>
+    <p class="lead">קודם כול מלמדים אותו לדבר איתך בקצב שלך. בלי זה, כל השאר יגיע כקיר טקסט.</p>
+
+    <figure class="say">
+      <figcaption>מדביקים ל-Claude:</figcaption>
+      <blockquote>תענה קצר, דבר אחד בכל פעם. כל רשימה ממוספרת, ובסוף שאלה אחת. אל תשאל אותי שאלה פתוחה — תציע, ותשאל אם זה נכון.</blockquote>
+      <button class="copy" type="button">העתקה</button>
+    </figure>
+
+    <div class="trap">
+      <h2>⚠️ מה עושים כשהוא מציע משהו שלא ביקשת</h2>
+      <p>קורה שהוא ימציא משימה — "נתחיל בבדיקה של התיקייה?". לא צריך לענות על זה.
+        פשוט ממשיכים למשפט הבא.</p>
+    </div>
+  </section>
+
+  <!-- ===== 2 ===== -->
+  <section class="step" data-label="משפט 2 מתוך 9">
+    <p class="when">פעם אחת — בפעם הראשונה</p>
+    <h1><span class="num">2</span> 📒 לשמור את הכללים</h1>
+    <p class="lead">עכשיו הכללים נשמרים לקובץ, כדי שיחולו בכל שיחה — לא רק בזו.</p>
+
+    <div class="pre">
+      <p class="pre-label">קודם מקלידים את הפקודה הזאת (פעם אחת בלבד):</p>
+      <figure class="say say-cmd">
+        <blockquote>/add-dir ~/.claude</blockquote>
+        <button class="copy" type="button">העתקה</button>
+      </figure>
+      <p class="pre-why">בלי זה Claude לא יוכל לכתוב לקבצים של עצמו, והשמירה תיחסם.</p>
+    </div>
+
+    <figure class="say">
+      <figcaption>ואז מדביקים:</figcaption>
+      <blockquote>תשמור את הכללים האלה ב-<bdi dir="ltr">~/.claude/CLAUDE.md</bdi>, ותוסיף: כשאני אומר 'סוכן', אני מתכוון לסקיל עם שם ואישיות שאני קורא לו בשם. כל סוכן מציג את עצמו עם האימוג'י שלו, ופותח בכותרת ושלוש שורות. ותפתח שם טבלה 'הסוכנים שלי'.</blockquote>
+      <button class="copy" type="button">העתקה</button>
+    </figure>
+
+    <div class="trap">
+      <h2>⚠️ מה עושים כשקופץ חלון אישור</h2>
+      <p>יקפוץ חלון באנגלית על קריאה או כתיבה מחוץ לתיקיית העבודה — <span dir="ltr">Read outside the working directories</span>.
+        הוא ארוך ומבלבל, והוא בסדר גמור: בוחרים <b>Yes</b>.</p>
+    </div>
+  </section>
+
+  <!-- ===== 3 ===== -->
+  <section class="step" data-label="משפט 3 מתוך 9">
+    <p class="when">בכל סוכן חדש</p>
+    <h1><span class="num">3</span> 🤔 האם בכלל צריך סוכן</h1>
+    <p class="lead">השאלה הכי חשובה, והכי קל לדלג עליה. לפעמים התשובה היא "לא" — וזה חוסך לך שעה.</p>
+
+    <figure class="say">
+      <figcaption>מדביקים, ומשלימים את הסוגריים במילים שלך:</figcaption>
+      <blockquote>אני רוצה סוכן ש-[מה מפריע לי / מה אני עושה שוב ושוב]. לפני שבונים, תגיד לי אם באמת צריך פה סוכן, או שמספיק משהו פשוט יותר.</blockquote>
+      <button class="copy" type="button">העתקה</button>
+    </figure>
+
+    <div class="trap">
+      <h2>⚠️ מה עושים כשהוא כבר מציע לבנות</h2>
+      <p>הוא ינסה לקפוץ קדימה ולהתחיל לבנות. לא נותנים — קודם משפט 4, תיאור התפקיד.
+        סוכן שנבנה בלי תיאור מוסכם יוצא לא מה שרצית.</p>
+    </div>
+  </section>
+
+  <!-- ===== 4 ===== -->
+  <section class="step" data-label="משפט 4 מתוך 9">
+    <p class="when">בכל סוכן חדש</p>
+    <h1><span class="num">4</span> 📋 תיאור תפקיד</h1>
+    <p class="lead">ארבע שורות שאתה קורא ומאשר. זה החוזה — ממנו נבנה הסוכן.</p>
+
+    <figure class="say">
+      <figcaption>מדביקים:</figcaption>
+      <blockquote>תכתוב לי בארבע שורות: מה הוא עושה, מה אני אכתוב לו כדי להפעיל אותו, מה הוא לא עושה, ומה נשאר בסוף. ותציע לו שם ואימוג'י. עוד לא לבנות.</blockquote>
+      <button class="copy" type="button">העתקה</button>
+    </figure>
+
+    <div class="trap">
+      <h2>⚠️ "עוד לא לבנות" — לא סתם מילים</h2>
+      <p>בבדיקה הוא בנה מיד אחרי שנאמר לו רק את השם, ודילג על שני שלבים.
+        אם זה קורה לך — עונים: <b>"עוד לא לבנות. קודם תראה לי את תיאור התפקיד."</b></p>
+    </div>
+  </section>
+
+  <!-- ===== 5 ===== -->
+  <section class="step" data-label="משפט 5 מתוך 9">
+    <p class="when">בכל סוכן חדש</p>
+    <h1><span class="num">5</span> 🏠 בונים</h1>
+    <p class="lead">עכשיו — ורק עכשיו — הוא כותב את הקבצים.</p>
+
+    <figure class="say">
+      <figcaption>מדביקים:</figcaption>
+      <blockquote>תבנה אותו כסקיל אישי ב-<bdi dir="ltr">~/.claude/skills</bdi>, שמתעורר כשכותבים את השם שלו בעברית, בלי לוכסן. ותכתוב בתיאור את השם בעברית ובאנגלית.</blockquote>
+      <button class="copy" type="button">העתקה</button>
+    </figure>
+
+    <div class="trap">
+      <h2>⚠️ "בעברית, בלי לוכסן" — זה הלב</h2>
+      <p>ברירת המחדל שלו היא פקודה עם לוכסן (<span dir="ltr">/poli</span>), ואז כתיבת השם בעברית לא מעירה אותו.
+        שם התיקייה יהיה באנגלית — זה תקין; מה שחשוב הוא שהשם העברי יופיע בתיאור.</p>
+    </div>
+  </section>
+
+  <!-- ===== 6 ===== -->
+  <section class="step" data-label="משפט 6 מתוך 9">
+    <p class="when">בכל סוכן חדש</p>
+    <h1><span class="num">6</span> 🎬 דוגמה</h1>
+    <p class="lead">דוגמה אחת טובה מלמדת את הסוכן יותר מעשרה משפטי הנחיה.</p>
+
+    <figure class="say">
+      <figcaption>מדביקים:</figcaption>
+      <blockquote>תוסיף לסקיל דוגמה אחת: מה אני כותב, מה התשובה הנכונה, ומה התשובה הלא נכונה.</blockquote>
+      <button class="copy" type="button">העתקה</button>
+    </figure>
+
+    <div class="callout">
+      <h2>✅ איך נראית דוגמה טובה</h2>
+      <p>ה"לא נכונה" היא החלק החשוב: היא צריכה להיות בדיוק הכישלון שאתה חושש ממנו —
+        הוא בונה בלי אישור, שופך הכול בבת אחת, או שואל שאלה פתוחה.</p>
+    </div>
+  </section>
+
+  <!-- ===== 7 ===== -->
+  <section class="step" data-label="משפט 7 מתוך 9">
+    <p class="when">בכל סוכן חדש</p>
+    <h1><span class="num">7</span> 🧪 בדיקה</h1>
+    <p class="lead">זה הרגע שבו מתברר אם יש לך סוכן או קובץ. בודקים ב<b>שיחה חדשה</b> — לא בזו.</p>
+
+    <figure class="say">
+      <figcaption>מדביקים:</figcaption>
+      <blockquote>איך אני בודק שזה עובד? תגיד לי מה לכתוב בשיחה חדשה, ומה אני אמור לראות.</blockquote>
+      <button class="copy" type="button">העתקה</button>
+    </figure>
+
+    <ol class="checklist">
+      <li>פותחים <b>שיחה חדשה</b>.</li>
+      <li>כותבים את השם של הסוכן בעברית, בלי לוכסן, עם בקשה אמיתית.</li>
+      <li>רואים אותו מציג את עצמו עם האימוג'י שלו? ✅ עובד.</li>
+    </ol>
+
+    <div class="trap">
+      <h2>⚠️ מה עושים כשהוא לא התעורר</h2>
+      <p>חוזרים לשיחה שבה בנינו אותו ואומרים:
+        <b>"הוא לא התעורר כשכתבתי [מה שכתבת] — תתקן את התיאור."</b></p>
+    </div>
+
+    <figure class="say say-small">
+      <figcaption>ולסיום, כדי שלא תשכח מה בנית:</figcaption>
+      <blockquote>תוסיף אותו לטבלה 'הסוכנים שלי'.</blockquote>
+      <button class="copy" type="button">העתקה</button>
+    </figure>
+  </section>
+
+  <!-- ===== 8 ===== -->
+  <section class="step" data-label="משפט 8 מתוך 9">
+    <p class="when">בכל סוכן חדש</p>
+    <h1><span class="num">8</span> 💾 זיכרון</h1>
+    <p class="lead">שיחה נגמרת — ואיתה כל מה שהסוכן ידע. מה שצריך לשרוד צריך קובץ.</p>
+
+    <figure class="say">
+      <figcaption>מדביקים:</figcaption>
+      <blockquote>מה שהסוכן צריך לזכור משיחה לשיחה — שיכתוב לקובץ בתיקייה שלו, לא ישאיר בשיחה.</blockquote>
+      <button class="copy" type="button">העתקה</button>
+    </figure>
+
+    <div class="callout">
+      <h2>🤷 לא לכל סוכן צריך זיכרון</h2>
+      <p>סוכן שמנסח הודעה — לא צריך. סוכן שמלווה אותך לאורך זמן ו"זוכר איפה עצרנו" — חייב.</p>
+    </div>
+  </section>
+
+  <!-- ===== 9 ===== -->
+  <section class="step" data-label="משפט 9 מתוך 9">
+    <p class="when">בכל רגע — גם באמצע שלב</p>
+    <h1><span class="num">9</span> 🆘 כשאני לא יודע</h1>
+    <p class="lead">המשפט היחיד שלא שייך לשלב מסוים. תקוע? שאלה שלא הבנת? זה הפתרון.</p>
+
+    <figure class="say">
+      <figcaption>מדביקים:</figcaption>
+      <blockquote>אני לא יודע. תציע לי 2–3 אפשרויות, ותמליץ על אחת.</blockquote>
+      <button class="copy" type="button">העתקה</button>
+    </figure>
+
+    <div class="callout">
+      <h2>💡 למה זה עובד</h2>
+      <p>"אני לא יודע" לא עוצר את התהליך — הוא רק מעביר את העבודה לצד השני.
+        בחירה מתוך שתיים קלה בהרבה מלהמציא תשובה מאפס.</p>
+    </div>
+  </section>
+
+  <!-- ===== סיום ===== -->
+  <section class="step" data-label="סיימת">
+    <p class="when">סיימת</p>
+    <h1>🎉 יש לך סוכן</h1>
+    <p class="lead">הוא יושב ב-<span dir="ltr">~/.claude/skills</span>, מתעורר בשם בכל שיחה חדשה,
+      ורשום אצלך בטבלה "הסוכנים שלי".</p>
+
+    <div class="callout callout-key">
+      <h2>➡️ הסוכן הבא</h2>
+      <p>משפטים 1–2 נאמרים פעם אחת בלבד. לסוכן הבא חוזרים ישר למשפט 3.</p>
+    </div>
+
+    <div class="callout">
+      <h2>🔎 מה עוד לא נבדק</h2>
+      <p>שינוי סוכן קיים אחרי שהוא כבר עובד · חיבור לכלים חיצוניים (נוטיון, יומן, דפדפן).
+        אם הגעת לשם — ספר מה קרה, וזה ייכנס למדריך.</p>
+    </div>
+  </section>
+
+</main>
+
+<nav class="nav" id="nav" hidden>
+  <div class="wrap nav-inner">
+    <button class="btn btn-ghost" type="button" id="prevBtn">› הקודם</button>
+    <button class="btn" type="button" id="nextBtn">הבא ‹</button>
+  </div>
+</nav>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>שיטת "תשעה משפטים" · נבדקה מאפס ב-Claude Code נקי, 21.10.2026 · שפי והארי 🎩</p>
+  </div>
+</footer>
+
+<p class="sr-live" id="liveRegion" role="status" aria-live="polite"></p>
+
+<script src="app.js"></script>
+</body>
+</html>
